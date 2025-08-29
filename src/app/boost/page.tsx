@@ -4,9 +4,18 @@ import { Layout, Button, Typography, Divider } from "@douyinfe/semi-ui";
 import { IconChevronLeft } from "@douyinfe/semi-icons";
 import Link from "next/link";
 import { useState } from "react";
+import dynamic from "next/dynamic";
+
 import VideoDetail from "./components/VideoDetail";
-import BoostForm from "./components/BoostForm";
-import IneligibleVideoBanner from "./components/IneligibleVideo";
+
+// Lazy load conditional components
+const BoostForm = dynamic(() => import("./components/BoostForm"), {
+  ssr: false,
+});
+const IneligibleVideoBanner = dynamic(
+  () => import("./components/IneligibleVideo"),
+  { ssr: false }
+);
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
