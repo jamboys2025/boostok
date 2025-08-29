@@ -19,7 +19,7 @@ export default function VideoCard({ src, username, caption }: VideoCardProps) {
         muted
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
-      <div className="relative p-4 text-white z-10 flex w-full">
+      <div className="relative p-4 text-white z-10 flex w-full pb-8">
         <div className="content-end w-full pb-8">
         <h3 className="font-bold">@{username}</h3>
         <p>{caption}</p>
@@ -27,7 +27,7 @@ export default function VideoCard({ src, username, caption }: VideoCardProps) {
           Follow
         </Button>
         </div>
-        <div className="justify-self-end p-8">
+        <div className="justify-self-end p-4">
         <FeedButtons />
         </div>
       </div>
