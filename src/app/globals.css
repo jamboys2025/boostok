@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~@semi-bot/semi-theme-doucreator/semi.min.css';
+
 button,input,optgroup,select,textarea {
     font-family: inherit;
     font-size: 100%;

@@ -1,8 +1,7 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
-const nextConfig: NextConfig = {
-    /* config options here */
+const semi = require('@douyinfe/semi-next').default({});
+
+module.exports = semi({
     transpilePackages: ['@douyinfe/semi-ui', '@douyinfe/semi-icons', '@douyinfe/semi-illustrations'],
-};
-
-export default nextConfig;
+});
