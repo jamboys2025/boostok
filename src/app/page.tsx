@@ -1,6 +1,7 @@
 "use client";
 
 import { Layout } from "@douyinfe/semi-ui";
+import VideoList from "@/components/feed/VideoList";
 
 export default function Home() {
   const { Header, Footer, Content } = Layout;
@@ -27,7 +28,9 @@ export default function Home() {
     "
       >
         <Header style={commonStyle}>Header</Header>
-        <Content style={{ height: "100%" }}>Content</Content>
+        <Content style={{ height: "100%" }}>
+          <VideoList />
+        </Content>
         <Footer style={commonStyle}>Footer</Footer>
       </Layout>
     </div>
