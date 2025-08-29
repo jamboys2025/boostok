@@ -22,6 +22,8 @@ export default function Home() {
       sm:w-[576px] sm:h-[1024px]
       sm:min-w-[576px] sm:min-h-[1024px]
       sm:max-w-[576px] sm:max-h-[1024px]
+      shadow-lg rounded-xl
+      overflow-hidden
     "
       >
         <Header style={commonStyle}>Header</Header>

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@douyinfe/semi-icons": "^2.85.0",
     "@douyinfe/semi-ui": "2.85.0",
     "next": "15.5.2",
     "react": "18.3.1",
