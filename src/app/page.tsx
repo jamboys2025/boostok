@@ -12,8 +12,18 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center justify-center h-[calc(100vh-40px)] p-5">
-      <Layout className="flex flex-col h-[1024px] min-h-[1024px] max-h-[1024px] w-[576px] min-w-[576px] max-w-[576px]">
+    <div className="flex items-center justify-center p-5 min-h-[calc(100vh-40px)] h-[calc(100vh-40px)]">
+      <Layout
+        className="
+      flex flex-col
+      w-full h-full
+      min-w-full min-h-full
+      max-w-full max-h-full
+      sm:w-[576px] sm:h-[1024px]
+      sm:min-w-[576px] sm:min-h-[1024px]
+      sm:max-w-[576px] sm:max-h-[1024px]
+    "
+      >
         <Header style={commonStyle}>Header</Header>
         <Content style={{ height: "100%" }}>Content</Content>
         <Footer style={commonStyle}>Footer</Footer>
