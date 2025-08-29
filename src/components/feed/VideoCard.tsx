@@ -9,6 +9,7 @@ type VideoCardProps = {
 };
 
 export default function VideoCard({ src, username, caption }: VideoCardProps) {
+  const notImplemented = () => {alert("Not Implemented Yet!")};
   return (
     <div className="relative h-screen w-full flex flex-col justify-end bg-black">
       <video
@@ -21,9 +22,9 @@ export default function VideoCard({ src, username, caption }: VideoCardProps) {
       />
       <div className="relative p-4 text-white z-10 flex w-full pb-8">
         <div className="content-end w-full pb-8">
-        <h3 className="font-bold">@{username}</h3>
+        <h3 className="font-bold" onClick={notImplemented}>@{username}</h3>
         <p>{caption}</p>
-        <Button theme="solid" type="tertiary" size="small" className="mt-2">
+        <Button theme="solid" type="tertiary" size="small" className="mt-2" onClick={notImplemented}>
           Follow
         </Button>
         </div>
