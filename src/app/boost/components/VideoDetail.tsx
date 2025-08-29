@@ -4,9 +4,6 @@ import { Avatar, Typography } from "@douyinfe/semi-ui";
 
 const { Title, Text } = Typography;
 
-const dyProfileImg =
-  "https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/dy.png";
-
 export default function VideoDetail({ onClick }: { onClick: () => void }) {
   return (
     <div className="flex items-center gap-4 mb-6" onClick={onClick}>
@@ -20,7 +17,7 @@ export default function VideoDetail({ onClick }: { onClick: () => void }) {
           My Awesome Video Title
         </Title>
         <div className="flex items-center gap-2">
-          <Avatar size="extra-extra-small" src={dyProfileImg} />
+          <Avatar size="extra-extra-small" src="/dy-min.png" />
           <Text size="small">@username</Text>
         </div>
       </div>
