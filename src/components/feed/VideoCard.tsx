@@ -29,7 +29,7 @@ export default function VideoCard({ src, username, caption }: VideoCardProps) {
         </Button>
         </div>
         <div className="justify-self-end p-4">
-        <FeedButtons />
+        <FeedButtons src={src} username={username} caption={caption} />
         </div>
       </div>
     </div>

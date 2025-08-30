@@ -3,8 +3,10 @@
 import { Layout, Button, Typography, Divider } from "@douyinfe/semi-ui";
 import { IconChevronLeft } from "@douyinfe/semi-icons";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import { useSearchParams } from "next/navigation";
+
 
 import VideoDetail from "./components/VideoDetail";
 import LoadingSpinner from "./components/LoadingSpinner";
@@ -28,6 +30,16 @@ const { Title } = Typography;
 export default function BoostPage() {
   // You can add logic here to determine if video is eligible
   const [isEligible, setIsEligible] = useState(true);
+  const searchParams = useSearchParams();
+  const src = searchParams.get("src");
+  const username = searchParams.get("username");
+  const caption = searchParams.get("caption");  
+
+  useEffect(() => { 
+    console.log(src)
+    console.log(username)
+    console.log(caption)
+  }, [src, username, caption]);
 
   return (
     <div className="flex items-center justify-center p-5 min-h-[calc(100vh-40px)] h-[calc(100vh-40px)] bg-gray-50">
