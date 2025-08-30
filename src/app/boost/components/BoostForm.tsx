@@ -51,11 +51,12 @@ export default function BoostForm() {
   };
 
   const handleProceed = () => {
-    if (!src || !username || !caption) {
+    console.log(src)
+    if (src || username || caption) {
       // Handle missing data case
       localStorage.setItem("boostData", JSON.stringify({ src, username, caption }));
+    
 
-      return;
     }
 
     setProceedLoading(true);
