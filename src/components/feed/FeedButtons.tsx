@@ -5,6 +5,7 @@ const labelClass = "text-sm text-white"
 const buttonClass = "flex flex-col items-center bg-transparent border-0";
 
 export default function FeedButtons() {
+  
 
   const handleClick = (action: string) => () =>{
     alert(`${action} not implemented!`);
@@ -24,7 +25,7 @@ export default function FeedButtons() {
         <Share2 className={iconClass} />
         <span className={labelClass}>Share</span>
       </button>
-      <button className={buttonClass} onClick={handleClick("Boost")}>
+      <button className={`${buttonClass} cursor-pointer`} onClick={handleClick("Boost")}>
         <Zap className={iconClass} />
         <span className={labelClass}>Boost</span>
       </button>
