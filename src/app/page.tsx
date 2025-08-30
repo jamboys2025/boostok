@@ -2,6 +2,7 @@
 
 import { Layout } from "@douyinfe/semi-ui";
 import VideoList from "@/components/feed/VideoList";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { Header, Footer, Content } = Layout;
@@ -11,6 +12,18 @@ export default function Home() {
     maxWidth: "100%",
     background: "var(--semi-color-fill-0)",
   };
+  
+  const [boostData, setBoostData] = useState<{ src: string; username: string; caption: string } | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("boostData");
+    console.log(stored)
+    if (stored) {
+      setBoostData(JSON.parse(stored));
+    }
+  }, []);
+
+  
 
   return (
     <div className="flex items-center justify-center p-5 min-h-[calc(100vh-40px)] h-[calc(100vh-40px)]">

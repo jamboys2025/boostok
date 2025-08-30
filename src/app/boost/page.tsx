@@ -16,6 +16,7 @@ const BoostForm = dynamic(() => import("./components/BoostForm"), {
   ssr: false,
   loading: () => <LoadingSpinner />,
 });
+
 const IneligibleVideoBanner = dynamic(
   () => import("./components/IneligibleVideo"),
   {

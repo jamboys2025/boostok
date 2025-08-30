@@ -12,6 +12,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const { Title, Text } = Typography;
+import { useSearchParams } from "next/navigation";
+
+
 
 export default function BoostForm() {
   const router = useRouter();
@@ -23,6 +26,11 @@ export default function BoostForm() {
   const [radioValue, setRadioValue] = useState<string | number>(10);
 
   const [proceedLoading, setProceedLoading] = useState(false);
+
+  const searchParams = useSearchParams();
+  const src = searchParams.get("src");
+  const username = searchParams.get("username");
+  const caption = searchParams.get("caption");  
 
   const handleRadioChange = (e: any) => {
     const value = e.target.value;
@@ -43,8 +51,11 @@ export default function BoostForm() {
   };
 
   const handleProceed = () => {
+    localStorage.setItem("boostData", JSON.stringify({ src, username, caption }));
+
     setProceedLoading(true);
     // wait
+    
     setTimeout(() => {
       // Here you would typically handle the payment processing.
       // After successful payment, navigate to the result page.
