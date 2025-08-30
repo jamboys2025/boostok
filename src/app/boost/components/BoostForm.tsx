@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 
 const { Title, Text } = Typography;
 import { useSearchParams } from "next/navigation";
-
+import { Suspense } from "react";
 
 
 export default function BoostForm() {
@@ -51,7 +51,12 @@ export default function BoostForm() {
   };
 
   const handleProceed = () => {
-    localStorage.setItem("boostData", JSON.stringify({ src, username, caption }));
+    if (!src || !username || !caption) {
+      // Handle missing data case
+      localStorage.setItem("boostData", JSON.stringify({ src, username, caption }));
+
+      return;
+    }
 
     setProceedLoading(true);
     // wait
