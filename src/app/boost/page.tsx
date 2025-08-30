@@ -35,16 +35,15 @@ export default function BoostPage() {
   // const searchParams = useSearchParams();
   // const src = searchParams.get("src");
   // const username = searchParams.get("username");
-  // const caption = searchParams.get("caption");  
+  // const caption = searchParams.get("caption");
 
-  // useEffect(() => { 
+  // useEffect(() => {
   //   console.log(src)
   //   console.log(username)
   //   console.log(caption)
   // }, [src, username, caption]);
 
   return (
-
     <div className="flex items-center justify-center p-5 min-h-[calc(100vh-40px)] h-[calc(100vh-40px)] bg-gray-50">
       <Layout
         className="
@@ -70,10 +69,20 @@ export default function BoostPage() {
         </Header>
         <Content className="p-6 overflow-y-auto bg-white flex flex-col">
           {/* Debug: toggle eligibility by clicking video detail */}
-          <VideoDetail onClick={() => setIsEligible((p) => !p)} />
+          <Suspense fallback={<LoadingSpinner />}>
+            <VideoDetail onClick={() => setIsEligible((p) => !p)} />
+          </Suspense>
           <Divider />
           <div className="flex-1">
-            {isEligible ? <BoostForm /> : <IneligibleVideoBanner />}
+            {isEligible ? (
+              <Suspense fallback={<LoadingSpinner />}>
+                <BoostForm />
+              </Suspense>
+            ) : (
+              <Suspense fallback={<LoadingSpinner />}>
+                <IneligibleVideoBanner />
+              </Suspense>
+            )}
           </div>
         </Content>
       </Layout>
