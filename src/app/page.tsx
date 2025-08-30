@@ -12,10 +12,12 @@ export default function Home() {
     maxWidth: "100%",
     background: "var(--semi-color-fill-0)",
   };
-  
-  const [boostData, setBoostData] = useState<{ src: any; username: any; caption: any } | null>(null);
 
-
+  const [boostData, setBoostData] = useState<{
+    src: any;
+    username: any;
+    caption: any;
+  } | null>(null);
 
   const [videos, setVideos] = useState([
     {
@@ -45,13 +47,11 @@ export default function Home() {
     },
   ]);
 
-
   useEffect(() => {
     const stored = localStorage.getItem("boostData");
-    console.log(stored)
+    console.log(stored);
     if (stored) {
       const parsed = JSON.parse(stored);
-
 
       setBoostData(parsed);
       // Move boostData video to top of videos array
@@ -59,10 +59,9 @@ export default function Home() {
         // remove it first if it already exists in the array
         const filtered = prev.filter((v) => v.src !== parsed.src);
         return [parsed, ...filtered];
-      });  
+      });
     }
   }, []);
-
 
   return (
     <div className="flex items-center justify-center p-5 min-h-[calc(100vh-40px)] h-[calc(100vh-40px)]">
@@ -79,12 +78,9 @@ export default function Home() {
       overflow-hidden
     "
       >
-        {//<Header style={commonStyle}>Header</Header>"
-        }
         <Content style={{ height: "100%" }}>
           <VideoList videos={videos} />
         </Content>
-        <Footer style={commonStyle}>Footer</Footer>
       </Layout>
     </div>
   );
