@@ -13,17 +13,56 @@ export default function Home() {
     background: "var(--semi-color-fill-0)",
   };
   
-  const [boostData, setBoostData] = useState<{ src: string; username: string; caption: string } | null>(null);
+  const [boostData, setBoostData] = useState<{ src: any; username: any; caption: any } | null>(null);
+
+
+
+  const [videos, setVideos] = useState([
+    {
+      src: "https://cdn.pixabay.com/video/2025/08/12/296958_tiny.mp4",
+      username: "user1",
+      caption: "Check out this awesome clip!",
+    },
+    {
+      src: "https://cdn.pixabay.com/video/2024/05/06/210905_tiny.mp4",
+      username: "user2",
+      caption: "Another fun moment 🎵",
+    },
+    {
+      src: "https://cdn.pixabay.com/video/2024/08/30/228847_tiny.mp4",
+      username: "user1",
+      caption: "Check out this awesome clip!",
+    },
+    {
+      src: "https://cdn.pixabay.com/video/2024/11/09/240570_tiny.mp4",
+      username: "user1",
+      caption: "Check out this awesome clip!",
+    },
+    {
+      src: "https://cdn.pixabay.com/video/2023/02/09/149899-797491517_tiny.mp4",
+      username: "user1",
+      caption: "Check out this awesome clip!",
+    },
+  ]);
+
 
   useEffect(() => {
     const stored = localStorage.getItem("boostData");
     console.log(stored)
     if (stored) {
-      setBoostData(JSON.parse(stored));
+      const parsed = JSON.parse(stored);
+
+
+      setBoostData(parsed);
+      // Move boostData video to top of videos array
+      setVideos((prev) => {
+        // remove it first if it already exists in the array
+        const filtered = prev.filter((v) => v.src !== parsed.src);
+        return [parsed, ...filtered];
+      });  
     }
   }, []);
 
-  
 
   return (
     <div className="flex items-center justify-center p-5 min-h-[calc(100vh-40px)] h-[calc(100vh-40px)]">
@@ -43,7 +82,7 @@ export default function Home() {
         {//<Header style={commonStyle}>Header</Header>"
         }
         <Content style={{ height: "100%" }}>
-          <VideoList />
+          <VideoList videos={videos} />
         </Content>
         <Footer style={commonStyle}>Footer</Footer>
       </Layout>
