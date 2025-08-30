@@ -7,14 +7,19 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 
 import VideoDetail from "./components/VideoDetail";
+import LoadingSpinner from "./components/LoadingSpinner";
 
-// Lazy load conditional components
+// Lazy load conditional components with loading spinner
 const BoostForm = dynamic(() => import("./components/BoostForm"), {
   ssr: false,
+  loading: () => <LoadingSpinner />,
 });
 const IneligibleVideoBanner = dynamic(
   () => import("./components/IneligibleVideo"),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => <LoadingSpinner />,
+  }
 );
 
 const { Header, Content } = Layout;
