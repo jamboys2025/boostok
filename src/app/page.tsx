@@ -27,7 +27,8 @@ export default function Home() {
       overflow-hidden
     "
       >
-        <Header style={commonStyle}>Header</Header>
+        {//<Header style={commonStyle}>Header</Header>"
+        }
         <Content style={{ height: "100%" }}>
           <VideoList />
         </Content>

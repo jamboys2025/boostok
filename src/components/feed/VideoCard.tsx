@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@douyinfe/semi-ui";
+import FeedButtons from "./FeedButtons";
 
 type VideoCardProps = {
   src: string;
@@ -8,6 +9,7 @@ type VideoCardProps = {
 };
 
 export default function VideoCard({ src, username, caption }: VideoCardProps) {
+  const notImplemented = () => {alert("Not Implemented Yet!")};
   return (
     <div className="relative h-screen w-full flex flex-col justify-end bg-black">
       <video
@@ -18,12 +20,17 @@ export default function VideoCard({ src, username, caption }: VideoCardProps) {
         muted
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
-      <div className="relative p-4 text-white z-10">
-        <h3 className="font-bold">@{username}</h3>
+      <div className="relative p-4 text-white z-10 flex w-full pb-8">
+        <div className="content-end w-full pb-8">
+        <h3 className="font-bold" onClick={notImplemented}>@{username}</h3>
         <p>{caption}</p>
-        <Button theme="solid" type="tertiary" size="small" className="mt-2">
+        <Button theme="solid" type="tertiary" size="small" className="mt-2" onClick={notImplemented}>
           Follow
         </Button>
+        </div>
+        <div className="justify-self-end p-4">
+        <FeedButtons />
+        </div>
       </div>
     </div>
   );
