@@ -13,8 +13,6 @@ import { useRouter } from "next/navigation";
 
 const { Title, Text } = Typography;
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
-
 
 export default function BoostForm() {
   const router = useRouter();
@@ -30,7 +28,7 @@ export default function BoostForm() {
   const searchParams = useSearchParams();
   const src = searchParams.get("src");
   const username = searchParams.get("username");
-  const caption = searchParams.get("caption");  
+  const caption = searchParams.get("caption");
 
   const handleRadioChange = (e: any) => {
     const value = e.target.value;
@@ -51,17 +49,18 @@ export default function BoostForm() {
   };
 
   const handleProceed = () => {
-    console.log(src)
+    console.log(src);
     if (src || username || caption) {
       // Handle missing data case
-      localStorage.setItem("boostData", JSON.stringify({ src, username, caption }));
-    
-
+      localStorage.setItem(
+        "boostData",
+        JSON.stringify({ src, username, caption })
+      );
     }
 
     setProceedLoading(true);
     // wait
-    
+
     setTimeout(() => {
       // Here you would typically handle the payment processing.
       // After successful payment, navigate to the result page.
